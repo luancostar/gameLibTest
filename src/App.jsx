@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Game from "./components/Game"
 
 export default function App () {
   const [games, setGames] = useState(() => {
@@ -66,14 +67,12 @@ export default function App () {
 
        <div className="games">
         {games.map((game) => (
-          <div ket={game.id}>  
-          <img src={game.cover} alt="" />
-          <div>
-            <h2>{game.title}</h2>
-            <button onClick={() => removeGame(game.id)}>Remover</button>
-          </div>
-
-          </div>
+        <Game
+         key={game.id}
+         title={game.title}
+         cover={game.cover}
+         onRemove={() => removeGame(game.id)}
+         />
         ))}
        </div>
     </div>
